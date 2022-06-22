@@ -14,13 +14,13 @@ const Home: NextPage = () => {
       <div className='grid place-items-center h-screen w-screen bg-indigo-100'>
         <div className='grid grid-rows-5 w-96 h-96 bg-white'>
 
-          <div className='place-self-center'>
+          <div className='place-self-center text-2xl'>
             Log In
           </div>
 
-          <div className='rows-span'>
-
-          </div>
+          <form action="" className='row-span-4'>
+            <input className='w-32 bg-gray-200' type="text" name="login" id=""/>
+          </form>
 
         </div>
       </div>
