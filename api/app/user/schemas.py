@@ -1,6 +1,5 @@
 from pydantic import BaseModel, EmailStr
-from .models import UserModel
-from typing import Optional
+from api.app.user.models import UserModel
 from tortoise.contrib.pydantic import pydantic_model_creator
 
 
@@ -13,17 +12,6 @@ class UserCreate(BaseModel):
 class UserLogin(BaseModel):
     email_username: str | EmailStr
     password: str
-
-
-class Token(BaseModel):
-    access_token: str
-    token_type: str
-
-
-class TokenData(BaseModel):
-    id: Optional[str] = None
-
-
 
 
 UserOut = pydantic_model_creator(

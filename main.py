@@ -1,17 +1,21 @@
 from fastapi import FastAPI
-from api import auth, user
+from api.app.auth import auth
+from api.app.user import user
+from api.app.content import post
+from api.config import settings
 from tortoise.contrib.fastapi import register_tortoise
 
 app = FastAPI()
 
 app.include_router(auth.auth_router)
 app.include_router(user.user_router)
+app.include_router(post.post_router)
 
 
 register_tortoise(
     app,
-    db_url="postgres://postgres:topscr1407@localhost:5432/media",
-    modules={"models": ["api.models"]},
+    db_url=settings.DATABASE_URL,
+    modules={"models": settings.APPS_MODELS},
     generate_schemas=True,
     add_exception_handlers=True,
 )
