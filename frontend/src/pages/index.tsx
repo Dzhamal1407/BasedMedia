@@ -1,9 +1,18 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import 'tailwindcss/tailwind.css'
-import Login from "../components/Login";
+import Header from "../components/Header";
+import {useState} from "react";
+import axios from "axios";
+import PostItem from "../components/PostItem";
+import {IPost} from "../types/post";
 
-const Home: NextPage = () => {
+interface HomePageProps {
+  posts: [IPost]
+}
+
+const Home: NextPage<HomePageProps> = ({posts}) => {
+
   return (
     <>
       <Head>
@@ -12,12 +21,29 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className='grid place-items-center h-screen w-screen bg-neutral-900'>
-        <Login/>
+      <div className='bg-neutral-900 w-screen h-screen'>
+        <Header/>
+        <div className='flex pt-14 justify-center w-full h-full overflow-auto'>
+          <div className='flex flex-col pt-8 gap-8 w-full max-w-xl h-full'>
+            {posts.map((post: IPost) => <PostItem key={post.id} post={post}/>)}
+          </div>
+
+        </div>
       </div>
 
     </>
   )
 }
 
-export default Home
+export default Home;
+
+export const getStaticProps = async () => {
+
+  const response = await axios.get('http://127.0.0.1:8000/posts')
+  const posts = response.data
+
+  return {
+    props: {posts}
+  }
+}
+

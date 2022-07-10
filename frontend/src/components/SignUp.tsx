@@ -1,8 +1,7 @@
 import React from 'react';
 import {LockClosedIcon, UserIcon} from "@heroicons/react/outline";
-import {motion} from "framer-motion";
 
-const Login: React.FC = () => {
+const SignUp = () => {
   return (
     <>
 
@@ -28,10 +27,7 @@ const Login: React.FC = () => {
 
         <div className='flex flex-col gap-2.5 w-full'>
             <label className='text-base'>Password</label>
-            <div
-              className='focus-within:outline focus-within:outline-2
-               focus-within:outline-blue-700 flex items-center gap-3.5 bg-zinc-700 h-11 rounded-lg'
-            >
+            <div className='focus-within:outline focus-within:outline-2 focus-within:outline-blue-700 flex items-center gap-3.5 bg-zinc-700 h-11 rounded-lg'>
               <LockClosedIcon className="w-7 ml-3.5 text-gray-900"/>
               <input
                 className='bg-inherit text-base w-4/5 mr-3.5 outline-none'
@@ -40,21 +36,13 @@ const Login: React.FC = () => {
             </div>
         </div>
 
-        <input
-          className='w-44 mt-3 py-1 bg-blue-700 rounded-3xl place-self-center
-           text-lg hover:brightness-125 cursor-pointer'
-          type="submit"
-          value='Login'
-        />
+        <input className='w-48 my-1 py-1 bg-blue-700 rounded-3xl place-self-center text-lg' type="submit" value='Login'/>
 
       </form>
 
-      <div className='text-center py-9 text-xl'>
+      <div className='text-center py-7 text-lg'>
         <p className='text-gray-300'>
-          Don&apos;t have an account?&nbsp;
-          <span className='text-indigo-500 cursor-pointer hover:brightness-125'>
-            Sign Up!
-          </span>
+          Don&apos;t have an account? <span className='text-indigo-500'>Sign Up!</span>
         </p>
       </div>
 
@@ -62,4 +50,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default SignUp;

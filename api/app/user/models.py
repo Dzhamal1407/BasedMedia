@@ -11,3 +11,6 @@ class UserModel(models.Model):
     class Meta:
         table: str = 'users'
 
+    class PydanticMeta:
+        exclude = ('password',)
+

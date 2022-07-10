@@ -14,6 +14,14 @@ class UserLogin(BaseModel):
     password: str
 
 
+class UserPublic(BaseModel):
+    id: int
+    username: str
+
+    class Config:
+        orm_mode = True
+
+
 UserOut = pydantic_model_creator(
     UserModel,
     name='UserOut',
