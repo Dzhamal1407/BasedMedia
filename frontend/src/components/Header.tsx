@@ -23,12 +23,14 @@ const Header: React.FC = () => {
           </div>
           <Search/>
           <button
-            className='hidden bg-indigo-600 rounded-3xl py-1 px-6 hover:brightness-125 md:inline'
+            className='hidden bg-indigo-600 rounded-3xl py-1 px-6
+            hover:brightness-125 md:inline'
             onClick={() => setAuthModalActive(true)}
           >
             Sing In
           </button>
-          <div className='inline-flex mr-3 cursor-pointer outline-offset-2 outline-gray-600 hover:outline hover:outline-1'>
+          <div className='inline-flex mr-3 cursor-pointer outline-offset-2 outline-gray-600
+           hover:outline hover:outline-1'>
             <UserIcon className='w-6 basis-8 stroke-1 text-white flex-none'/>
             <ChevronDownIcon className='w-6 text-white'/>
           </div>

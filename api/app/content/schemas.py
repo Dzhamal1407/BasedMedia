@@ -47,5 +47,8 @@ class PostOut(PydanticModel):
     id: int
     title: str
     content: str
-    image: Optional[str]
+    image: str
     host: UserPublic
+
+
+

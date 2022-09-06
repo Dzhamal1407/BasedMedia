@@ -4,6 +4,7 @@ from . import schemas, models
 import os
 import uuid
 import cv2
+import json
 
 
 class FileService:
@@ -20,12 +21,15 @@ class FileService:
         img = cv2.imread(file_path, 0)
         height, width = img.shape[:2]
         dictionary = {
-            'file': file_name,
-            'height': height,
-            'width': width,
+            "file": file_name,
+            "height": height,
+            "width": width,
         }
-        print(dictionary)
-        return file_name
+        return json.dumps(dictionary)
+
+    @staticmethod
+    async def delete_file(filepath: str) -> str:
+        os.remove("/api/static/"+filepath)
 
 
 class PostService(BaseService):
